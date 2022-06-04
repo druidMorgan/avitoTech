@@ -1,0 +1,1 @@
+SELECT * FROM users WHERE user_id = 2 OR user_id = 1

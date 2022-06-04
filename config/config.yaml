@@ -1,0 +1,9 @@
+port: "8000"
+
+db:
+  username: "postgres"
+  password: "postgres" #пока берем из конфига. Надо из переменной окружения
+  host: "db"
+  port: "5432"
+  dbname: "users"
+  sslmode: "disable" 

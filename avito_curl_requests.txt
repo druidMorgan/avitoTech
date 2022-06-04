@@ -1,0 +1,34 @@
+curl -G http://localhost:8091/balance?user_id=3
+
+curl -F "key=1" -F "tag=updBalance" -F "sum=100" http://localhost:8091/balance 
+
+curl -F "keyFrom=1" -F "keyTo=1" -F "sum=50" http://localhost:8091/send_sum
+
+curl -X DELETE -F "key=Evgeny" http://localhost:8090/user
+
+curl -X PUT -F "key=Evgeny" -F "name=Jenya" -F "surname=Travkin" -F "id=23" http://localhost:8090/user
+
+
+
+// более удобные и понятные POST запросы
+
+// запрос баланса
+curl -G http://localhost:8091/balance?user_id=3
+
+// получение списка транзакций
+curl -G http://localhost:8091/transaction?user_id=3
+
+// пополнение
+curl -X POST -d "user_id=1&amount=50" http://localhost:8091/top-up
+
+// списание
+curl -X POST -d "user_id=1&amount=50" http://localhost:8091/debit
+
+// перевод
+curl -X POST -d "user_from_id=1&user_to_id=2&amount=50" http://localhost:8091/transfer
+
+
+// Запросы с json'ом
+curl -H "Content-Type: application/json" -X GET -d '{"user_id":1}' http://localhost:8090/balance
+curl -H "Content-Type: application/json" -X POST -d '{"user_id":1,"amount":50}' http://localhost:8090/top-up
+curl -H "Content-Type: application/json" -X POST -d '{"user_from_id":1, "user_to_id":3,"amount":50}' http://localhost:8090/transfer

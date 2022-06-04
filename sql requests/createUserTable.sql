@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS users (
+    user_id SERIAL PRIMARY KEY,
+	firstName TEXT NOT NULL,
+	lastName TEXT NOT NULL,
+    balance INT NOT NULL)

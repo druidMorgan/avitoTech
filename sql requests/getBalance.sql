@@ -1,0 +1,1 @@
+SELECT balance FROM users WHERE user_id = 2 OR user_id = 1 ORDER BY user_id ASC  
